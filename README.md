@@ -1,36 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# my open-source contributions
 
-## Getting Started
+<img width="1406" alt="my open-source contribution" src="https://github.com/user-attachments/assets/d0d23858-4cce-4924-8fd9-c4084b393509">
 
-First, run the development server:
+## :muscle: support me
+<a href="https://www.nihbuatjajan.com/depapp" target="_blank"><img src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png" alt="Nih buat jajan" style="height: 51px !important;" ></a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<a href="https://saweria.co/depapp" target="_blank"><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/6134774/278801090-c4efd5c9-c0a7-43dc-9ea1-c21bc1a55203.png" width="20%" height="20%"></a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<a href="https://www.paypal.me/depapp" target="_blank"><img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/C2/logos-buttons/optimize/44_Yellow_PayPal_Pill_Button.png"></a>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## :busts_in_silhouette: the contributors
+<a href="https://github.com/depapp/my-open-source-contributions/graphs/contributors"><img src="https://contrib.rocks/image?repo=depapp/my-open-source-contributions" alt="All the amazing contributors of my-open-source-contributions"></a>
