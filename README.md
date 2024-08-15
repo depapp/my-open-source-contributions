@@ -2,6 +2,17 @@
 
 <img width="1406" alt="my open-source contribution" src="https://github.com/user-attachments/assets/d0d23858-4cce-4924-8fd9-c4084b393509">
 
+## badge
+add this badge to your github profile page using this markdown below. _change the `githubusername` with your github username_
+
+```markdown
+[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-green?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/githubusername)](https://my-open-source-contributions.vercel.app/githubusername)
+```
+
+example:
+
+[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-green?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/depapp)](https://my-open-source-contributions.vercel.app/depapp)
+
 ## :muscle: support me
 <a href="https://www.nihbuatjajan.com/depapp" target="_blank"><img src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png" alt="Nih buat jajan" style="height: 51px !important;" ></a>
 
