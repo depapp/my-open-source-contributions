@@ -6,12 +6,12 @@
 add this badge to your github profile page using this markdown below. _change the `githubusername` with your github username_
 
 ```markdown
-[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-green?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/githubusername)](https://my-open-source-contributions.vercel.app/githubusername)
+[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-blue?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/githubusername)](https://my-open-source-contributions.vercel.app/githubusername)
 ```
 
 example:
 
-[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-green?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/depapp)](https://my-open-source-contributions.vercel.app/depapp)
+[![my open-source contributions](https://img.shields.io/badge/my%20open--source%20contributions-click%20here-blue?style=for-the-badge&logo=github&link=https://my-open-source-contributions.vercel.app/depapp)](https://my-open-source-contributions.vercel.app/depapp)
 
 ## :muscle: support me
 <a href="https://www.nihbuatjajan.com/depapp" target="_blank"><img src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png" alt="Nih buat jajan" style="height: 51px !important;" ></a>
