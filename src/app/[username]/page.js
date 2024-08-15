@@ -114,12 +114,12 @@ export default function UserContributions() {
       {hasContributions ? (
         <div className="flex flex-col w-full max-w-4xl">
           <div className="flex justify-between mb-4">
-            <select value={sort} onChange={(e) => setSort(e.target.value)} className="p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select value={sort} onChange={(e) => setSort(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="star">Star Count</option>
               <option value="latest">Latest PR</option>
               <option value="oldest">Oldest PR</option>
             </select>
-            <select value={filter} onChange={(e) => setFilter(e.target.value)} className="p-2 border border-gray-300 rounded bg-white text-black dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select value={filter} onChange={(e) => setFilter(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="all">All</option>
               <option value="open">Open</option>
               <option value="merged">Merged</option>
@@ -127,7 +127,7 @@ export default function UserContributions() {
             </select>
           </div>
           {filteredPRs.map(([repoName, prs]) => (
-            <div key={repoName} className="mb-4 p-4 border border-gray-300 rounded">
+            <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5">
               <h3 className="text-xl font-bold text-center">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3><br />
               {prs.map((pr) => (
                 <div key={pr.url} className="mb-2 flex">
