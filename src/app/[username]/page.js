@@ -101,15 +101,29 @@ export default function UserContributions() {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
+  const profileUrl = `${window.location.origin}/${data.login}`;
+  const toolUrl = `${window.location.origin}`;
+  const shareText = `I have ${data.pullRequests.nodes.length} contributions on open-source projects.\nCheck out my profile at ${profileUrl}\n\nGive it a try yourself at ${toolUrl}`;
+  const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+  const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?mini=true&url=${encodeURIComponent(profileUrl)}&summary=${encodeURIComponent(shareText)}`;
+
   return (
     <main className="flex min-h-screen flex-col items-center p-4 md:p-24">
       <h1 className="text-4xl font-bold mb-8 text-center">My Open-Source Contribution on GitHub</h1>
       <div className="flex flex-col items-center mb-8">
         <img src={data.avatarUrl} alt={data.login} className="rounded-full w-24 h-24 mb-4" />
         <h2 className="text-2xl">{data.name}</h2>
-        <a href={`https://github.com/${data.login}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+        <a href={profileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500">
           @{data.login}
         </a>
+      </div>
+      <div className="flex space-x-4 mb-8">
+        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+          Share on X
+        </a>
+        {/* <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white px-4 py-2 rounded-lg">
+          Share on LinkedIn
+        </a> */}
       </div>
       {hasContributions ? (
         <div className="flex flex-col w-full max-w-4xl">
