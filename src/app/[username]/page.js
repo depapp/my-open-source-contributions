@@ -70,7 +70,10 @@ export default function UserContributions() {
 
   const hasContributions = data.pullRequests.nodes.length > 0;
 
-  const groupedPRs = data.pullRequests.nodes.reduce((acc, pr) => {
+  // Exclude PRs from the user's own repositories
+  const filteredPRs = data.pullRequests.nodes.filter(pr => !pr.repository.nameWithOwner.startsWith(`${data.login}/`));
+
+  const groupedPRs = filteredPRs.reduce((acc, pr) => {
     const repoName = pr.repository.nameWithOwner;
     if (!acc[repoName]) {
       acc[repoName] = [];
@@ -90,7 +93,7 @@ export default function UserContributions() {
     return 0;
   });
 
-  const filteredPRs = sortedPRs.map(([repoName, prs]) => {
+  const finalFilteredPRs = sortedPRs.map(([repoName, prs]) => {
     return [
       repoName,
       prs.filter(pr => filter === 'all' || pr.state.toLowerCase() === filter)
@@ -140,7 +143,7 @@ export default function UserContributions() {
               <option value="closed">Closed</option>
             </select>
           </div>
-          {filteredPRs.map(([repoName, prs]) => (
+          {finalFilteredPRs.map(([repoName, prs]) => (
             <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5 overflow-hidden">
               <h3 className="text-xl font-bold text-center truncate">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3><br />
               {prs.map((pr) => (
