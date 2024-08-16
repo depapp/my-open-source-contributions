@@ -56,13 +56,13 @@ export default function UserContributions() {
 
   if (loading) return <div className="flex justify-center items-center min-h-screen"><div className="loader"></div></div>;
   if (error) return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
       <h1 className="text-4xl font-bold mb-4">unable to find this username</h1>
       <p className="text-lg">please make sure the username is correct</p>
     </main>
   );
   if (!data) return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
       <h1 className="text-4xl font-bold mb-4">unable to find this username</h1>
       <p className="text-lg">please make sure the username is correct</p>
     </main>
@@ -102,8 +102,8 @@ export default function UserContributions() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-4xl font-bold mb-8">My Open-Source Contribution on GitHub</h1>
+    <main className="flex min-h-screen flex-col items-center p-4 md:p-24">
+      <h1 className="text-4xl font-bold mb-8 text-center">My Open-Source Contribution on GitHub</h1>
       <div className="flex flex-col items-center mb-8">
         <img src={data.avatarUrl} alt={data.login} className="rounded-full w-24 h-24 mb-4" />
         <h2 className="text-2xl">{data.name}</h2>
@@ -127,8 +127,8 @@ export default function UserContributions() {
             </select>
           </div>
           {filteredPRs.map(([repoName, prs]) => (
-            <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5">
-              <h3 className="text-xl font-bold text-center">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3><br />
+            <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5 overflow-hidden">
+              <h3 className="text-xl font-bold text-center truncate">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3><br />
               {prs.map((pr) => (
                 <div key={pr.url} className="mb-2 flex">
                   <span className="mr-2">•</span>
