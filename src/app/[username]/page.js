@@ -116,6 +116,7 @@ export default function UserContributions() {
   const shareText = `I have ${data.pullRequests.nodes.length} contributions on open-source projects.\nCheck out my profile at ${profileUrl}\n\nGive it a try yourself at ${toolUrl}`;
   const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?mini=true&url=${encodeURIComponent(profileUrl)}&summary=${encodeURIComponent(shareText)}`;
+  const supportUrl = 'https://github.com/depapp/my-open-source-contributions?tab=readme-ov-file#muscle-support-me';
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 md:p-24">
@@ -128,8 +129,17 @@ export default function UserContributions() {
         </a>
       </div>
       <div className="flex space-x-4 mb-8">
-        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.897-.959-2.178-1.559-3.594-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.087-.205-7.713-2.165-10.141-5.144-.422.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 14.002-7.496 14.002-13.986 0-.21 0-.423-.015-.634.961-.695 1.8-1.562 2.46-2.549z"/>
+          </svg>
           Share on X
+        </a>
+        <a href={supportUrl} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center">
+          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          Support Me
         </a>
         {/* <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white px-4 py-2 rounded-lg">
           Share on LinkedIn
@@ -154,7 +164,7 @@ export default function UserContributions() {
             <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5 overflow-hidden">
               <div className="flex flex-col items-center text-center">
                 <img src={avatarUrl} alt={repoName} className="w-8 h-8 rounded-full mb-2" />
-                <h3 className="text-xl font-bold truncate">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3>
+                <h3 className="text-xl font-bold truncate w-full overflow-hidden text-ellipsis">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3>
               </div>
               <br />
               {prs.map((pr) => (
