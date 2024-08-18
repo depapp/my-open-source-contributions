@@ -21,6 +21,9 @@ const query = gql`
           repository {
             nameWithOwner
             stargazerCount
+            owner {
+              avatarUrl
+            }
           }
         }
       }
@@ -76,27 +79,31 @@ export default function UserContributions() {
   const groupedPRs = filteredPRs.reduce((acc, pr) => {
     const repoName = pr.repository.nameWithOwner;
     if (!acc[repoName]) {
-      acc[repoName] = [];
+      acc[repoName] = {
+        prs: [],
+        avatarUrl: pr.repository.owner.avatarUrl,
+      };
     }
-    acc[repoName].push(pr);
+    acc[repoName].prs.push(pr);
     return acc;
   }, {});
 
   const sortedPRs = Object.entries(groupedPRs).sort((a, b) => {
     if (sort === 'star') {
-      return b[1][0].repository.stargazerCount - a[1][0].repository.stargazerCount;
+      return b[1].prs[0].repository.stargazerCount - a[1].prs[0].repository.stargazerCount;
     } else if (sort === 'latest') {
-      return new Date(b[1][0].createdAt) - new Date(a[1][0].createdAt);
+      return new Date(b[1].prs[0].createdAt) - new Date(a[1].prs[0].createdAt);
     } else if (sort === 'oldest') {
-      return new Date(a[1][0].createdAt) - new Date(b[1][0].createdAt);
+      return new Date(a[1].prs[0].createdAt) - new Date(b[1].prs[0].createdAt);
     }
     return 0;
   });
 
-  const finalFilteredPRs = sortedPRs.map(([repoName, prs]) => {
+  const finalFilteredPRs = sortedPRs.map(([repoName, { prs, avatarUrl }]) => {
     return [
       repoName,
-      prs.filter(pr => filter === 'all' || pr.state.toLowerCase() === filter)
+      prs.filter(pr => filter === 'all' || pr.state.toLowerCase() === filter),
+      avatarUrl,
     ];
   }).filter(([repoName, prs]) => prs.length > 0);
 
@@ -143,9 +150,13 @@ export default function UserContributions() {
               <option value="closed">Closed</option>
             </select>
           </div>
-          {finalFilteredPRs.map(([repoName, prs]) => (
+          {finalFilteredPRs.map(([repoName, prs, avatarUrl]) => (
             <div key={repoName} className="p-5 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5 overflow-hidden">
-              <h3 className="text-xl font-bold text-center truncate">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3><br />
+              <div className="flex flex-col items-center text-center">
+                <img src={avatarUrl} alt={repoName} className="w-8 h-8 rounded-full mb-2" />
+                <h3 className="text-xl font-bold truncate">{repoName} 🌟 {formatNumber(prs[0]?.repository.stargazerCount)}</h3>
+              </div>
+              <br />
               {prs.map((pr) => (
                 <div key={pr.url} className="mb-2 flex">
                   <span className="mr-2">•</span>
