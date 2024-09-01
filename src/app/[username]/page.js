@@ -116,7 +116,7 @@ export default function UserContributions() {
   const shareText = `I have ${data.pullRequests.nodes.length} contributions on open-source projects.\nCheck out my profile at ${profileUrl}\n\nGive it a try yourself at ${toolUrl}`;
   const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?mini=true&url=${encodeURIComponent(profileUrl)}&summary=${encodeURIComponent(shareText)}`;
-  const supportUrl = 'https://github.com/depapp/my-open-source-contributions?tab=readme-ov-file#muscle-support-me';
+  const supportUrl = 'https://github.com/depapp/my-open-source-contributions';
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 md:p-24">
